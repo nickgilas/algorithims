@@ -32,7 +32,7 @@ public class ThreeSum {
 
 	public static void main(String[] args) {
 
-		StopWatch timer = new StopWatch();
+//		StopWatch timer = new StopWatch();
 		// int cnt = count(a);
 		// StdOut.println("elapsed time = " + timer.elapsedTime());
 		// StdOut.println(cnt);

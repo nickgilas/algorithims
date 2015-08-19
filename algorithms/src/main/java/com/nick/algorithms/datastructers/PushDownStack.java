@@ -7,12 +7,12 @@ import java.util.Iterator;
  */
 public class PushDownStack<T> implements Iterable<T> {
 
-	private class Node<T> {
+	private class Node {
 		T item;
 		Node nextNode;
 	}
 
-	private Node<T> firstNode;
+	private Node firstNode;
 
 	private int index;
 
@@ -36,8 +36,8 @@ public class PushDownStack<T> implements Iterable<T> {
 	}
 
 	public void push(T t) {
-		Node<T> oldFirst = firstNode;
-		firstNode = new Node<>();
+		Node oldFirst = firstNode;
+		firstNode = new Node();
 		firstNode.item = t;
 		firstNode.nextNode = oldFirst;
 		index++;

@@ -30,6 +30,7 @@ public class Sort {
 		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static void selectionSort(Comparable[] a) { // Sort a[] into
 														// increasing order.
 		int N = a.length; // array length
