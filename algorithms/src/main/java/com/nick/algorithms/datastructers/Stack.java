@@ -1,22 +1,69 @@
-package com.nick.algorithms.notmine;
+package com.nick.algorithms.datastructers;
+
 import java.util.Iterator;
 import java.util.ListIterator;
 
+/**
+ * Classic stack backed by a linked list.
+ */
 public class Stack<T> implements Iterable<T> {
+
+	private class Node {
+		T item;
+		Node next;
+	}
+
+	public static void main(String[] args) {
+		Stack<String> stack = new Stack<>();
+		stack.push("1");
+		stack.push("2");
+		stack.push("3");
+		// while (stack.numOfNodes > 0) {
+		//
+		// System.out.println();
+		// }
+		stack.printIterator(stack.iterator());
+		System.err.println("---------------");
+		stack.pop();
+		final Stack<String> newStack = stack;
+		stack.printIterator(newStack.iterator());
+		System.err.println("---------------");
+		stack.pop();
+		stack.printIterator(stack.iterator());
+
+	}
 
 	// default size
 	private Node first;
+
 	private int numOfNodes;
+
+	public boolean isEmpty() {
+		return numOfNodes == 0;
+	}
 
 	@Override
 	public Iterator<T> iterator() {
 		return new ListIterator<T>() {
-			
+
 			private Node current = first;
-						
+
+			@Override
+			public void add(T e) {
+				current = current.next;
+				current.item = e;
+				numOfNodes++;
+			}
+
 			@Override
 			public boolean hasNext() {
 				return current != null;
+			}
+
+			@Override
+			public boolean hasPrevious() {
+				// TODO Auto-generated method stub
+				return false;
 			}
 
 			@Override
@@ -34,22 +81,9 @@ public class Stack<T> implements Iterable<T> {
 			}
 
 			@Override
-			public void remove() {
-				current = current.next;
-				current = null;
-			}
-
-			@Override
-			public void add(T e) {
-				current = current.next;
-				current.item = e;
-				numOfNodes++;
-			}
-
-			@Override
-			public boolean hasPrevious() {
+			public int nextIndex() {
 				// TODO Auto-generated method stub
-				return false;
+				return 0;
 			}
 
 			@Override
@@ -59,33 +93,25 @@ public class Stack<T> implements Iterable<T> {
 			}
 
 			@Override
-			public int nextIndex() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
 			public int previousIndex() {
 				// TODO Auto-generated method stub
 				return 0;
 			}
 
 			@Override
+			public void remove() {
+				current = current.next;
+				current = null;
+			}
+
+			@Override
 			public void set(T e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		};
 	}
- 
-	public boolean isEmpty() {
-		return numOfNodes == 0;
-	}
-	
-	public int size() {
-		return numOfNodes;
-	}
-	
+
 	public T pop() {
 		final Node current = first;
 		// first become the next node
@@ -96,6 +122,15 @@ public class Stack<T> implements Iterable<T> {
 		numOfNodes--;
 		return current.item;
 	}
+
+	public void printIterator(Iterator<T> t) {
+
+		while (t.hasNext()) {
+			System.out.println(t.next());
+		}
+
+	}
+
 	public void push(T t) {
 		final Node oldFirst = first;
 		first = new Node();
@@ -103,41 +138,14 @@ public class Stack<T> implements Iterable<T> {
 		first.item = t;
 		numOfNodes++;
 	}
-	private class Node {
-		T item;
-		Node next;		
+
+	public int size() {
+		return numOfNodes;
 	}
-	
-	public void printIterator(Iterator<T> t) {
-		
-		while (t.hasNext()) {
-			System.out.println(t.next());
-		}
-		
-	}
-	
+
+	@Override
 	public String toString() {
 		return first.item.toString();
-	}
-	
-	public static void main(String[] args) {
-		Stack<String> stack = new Stack<>();
-		stack.push("1");
-		stack.push("2");
-		stack.push("3");
-//		while (stack.numOfNodes > 0) {
-//			
-//			System.out.println();
-//		}
-		stack.printIterator(stack.iterator());
-		System.err.println("---------------");
-		stack.pop();
-		final Stack<String> newStack = stack;
-		stack.printIterator(newStack.iterator());
-		System.err.println("---------------");
-		stack.pop();
-		stack.printIterator(stack.iterator());
-		
 	}
 
 }
