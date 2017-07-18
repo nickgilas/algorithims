@@ -5,9 +5,11 @@ public class SortUtils {
 	@SuppressWarnings("rawtypes")
 	public static boolean isSorted(Comparable[] a) { // Test whether the array
 		// entries are in order.
-		for (int i = 1; i < a.length; i++)
-			if (less(a[i], a[i - 1]))
+		for (int i = 1; i < a.length; i++) {
+			if (less(a[i], a[i - 1])) {
 				return false;
+			}
+		}
 		return true;
 	}
 
@@ -27,8 +29,8 @@ public class SortUtils {
 	@SuppressWarnings("rawtypes")
 	public static void sort(Comparable[] a) { // Sort a[] into increasing order.
 		int arrayLength = a.length;
-		for (int outterIndex = 1; outterIndex < arrayLength; outterIndex++) {
-			for (int innerIndex = outterIndex; innerIndex > 0 && less(a[innerIndex], a[innerIndex - 1]); innerIndex--)
+		for (int outerIndex = 1; outerIndex < arrayLength; outerIndex++) {
+			for (int innerIndex = outerIndex; innerIndex > 0 && less(a[innerIndex], a[innerIndex - 1]); innerIndex--)
 				swap(a, innerIndex, innerIndex - 1);
 		}
 	}
