@@ -4,3 +4,4 @@ algorithms/.classpath
 algorithms/.project
 
 *.prefs
+/target/
