@@ -3,6 +3,9 @@ package com.nick.algorithms.datastructers;
 import java.util.Iterator;
 
 /**
+ * a list in which the next item to be removed is the item most recently stored
+ * (LIFO)
+ *
  * Backed by a single linked list
  */
 public class PushDownStack<T> implements Iterable<T> {

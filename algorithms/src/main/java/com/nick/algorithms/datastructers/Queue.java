@@ -18,28 +18,6 @@ public class Queue<T> implements Iterable<T> {
 		}
 	}
 
-	public static void main(String[] args) {
-		Queue<String> q = new Queue<String>();
-		// read values from input
-		try (Scanner scanner = new Scanner(System.in)) {
-
-			// TODO - profile the difference in number of objects/memory usage
-			// by having the "item's" scope within and outside of the loop
-			// String item = null;
-
-			while (scanner.hasNext()) {
-				String item = scanner.nextLine();
-				System.out.println("Processing: " + item);
-				if (!item.equals("-")) {
-					q.enqueue(item);
-				} else if (!q.isEmpty()) {
-					System.out.println(q.dequeue() + " ");
-				}
-			}
-			System.out.println("(" + q.size() + " left on queue)");
-		}
-	}
-
 	private Node newestNode; // link to the newest/first added node
 
 	private int nodeCount = 0;
@@ -110,4 +88,25 @@ public class Queue<T> implements Iterable<T> {
 		return nodeCount;
 	}
 
+	public static void main(String[] args) {
+		Queue<String> q = new Queue<String>();
+		// read values from input
+		try (Scanner scanner = new Scanner(System.in)) {
+
+			// TODO - profile the difference in number of objects/memory usage
+			// by having the "item's" scope within and outside of the loop
+			// String item = null;
+
+			while (scanner.hasNext()) {
+				String item = scanner.nextLine();
+				System.out.println("Processing: " + item);
+				if (!item.equals("-")) {
+					q.enqueue(item);
+				} else if (!q.isEmpty()) {
+					System.out.println(q.dequeue() + " ");
+				}
+			}
+			System.out.println("(" + q.size() + " left on queue)");
+		}
+	}
 }

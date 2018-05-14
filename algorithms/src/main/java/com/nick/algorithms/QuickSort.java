@@ -16,22 +16,36 @@ public class QuickSort extends BaseSort implements Sorter {
 
 	@SuppressWarnings("rawtypes")
 	private void quickSort(Comparable[] array, int left, int right) {
-		// left and right scan indices
+
+		// Find the middle of the array to use as the pivot point
 		Comparable pivot = array[left + (right - left) / 2];
 		System.out.println("Using pivot point: " + pivot);
 
+		// left and right scan indices
 		int i = left, j = right;
-		while (i < j) {
+		while (i <= j) {
 
 			// find the next value larger then the pivot on the left side of the
 			// array
+<<<<<<< HEAD
 			while (getSortUtils().lessThan(array[i], pivot)) {
 				i++;
+=======
+			while (SortUtils.less(array[i], pivot)) {
+				i++; // move the left side index one position to the
+								// right of the array
+>>>>>>> branch 'master' of https://github.com/nickgilas/algorithms.git
 			}
 			// find the next value lower then the pivot on the right side of the
 			// array
+<<<<<<< HEAD
 			while (getSortUtils().lessThan(pivot, array[j])) {
 				j--;
+=======
+			while (SortUtils.less(pivot, array[j])) {
+				j--; // move the right side index one position to the
+								// left of the array
+>>>>>>> branch 'master' of https://github.com/nickgilas/algorithms.git
 			}
 
 			if (i <= j) {

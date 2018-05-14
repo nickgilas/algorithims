@@ -13,26 +13,6 @@ public class Stack<T> implements Iterable<T> {
 		Node next;
 	}
 
-	public static void main(String[] args) {
-		Stack<String> stack = new Stack<>();
-		stack.push("1");
-		stack.push("2");
-		stack.push("3");
-		// while (stack.numOfNodes > 0) {
-		//
-		// System.out.println();
-		// }
-		stack.printIterator(stack.iterator());
-		System.err.println("---------------");
-		stack.pop();
-		final Stack<String> newStack = stack;
-		stack.printIterator(newStack.iterator());
-		System.err.println("---------------");
-		stack.pop();
-		stack.printIterator(stack.iterator());
-
-	}
-
 	// default size
 	private Node first;
 
@@ -114,7 +94,7 @@ public class Stack<T> implements Iterable<T> {
 
 	public T pop() {
 		final Node current = first;
-		// first become the next node
+		// first becomes the next node
 		first = first.next;
 		if (isEmpty()) {
 			first = null;
@@ -146,6 +126,26 @@ public class Stack<T> implements Iterable<T> {
 	@Override
 	public String toString() {
 		return first.item.toString();
+	}
+
+	public static void main(String[] args) {
+		Stack<String> stack = new Stack<>();
+		stack.push("1");
+		stack.push("2");
+		stack.push("3");
+		// while (stack.numOfNodes > 0) {
+		//
+		// System.out.println();
+		// }
+		stack.printIterator(stack.iterator());
+		System.err.println("---------------");
+		stack.pop();
+		final Stack<String> newStack = stack;
+		stack.printIterator(newStack.iterator());
+		System.err.println("---------------");
+		stack.pop();
+		stack.printIterator(stack.iterator());
+
 	}
 
 }
