@@ -6,44 +6,36 @@ public abstract class BaseSort {
 	Comparable[] auxArray;
 	
 	@SuppressWarnings("rawtypes")
-	protected void merge(Comparable[] array, int low, int mid, int hi) {
-		System.out.println(String.format("Merge low: %d mid: %d hi: %d", low, mid, hi));
+	protected void merge(Comparable[] array, int lo, int mid, int hi) {
+		System.out.println(String.format("Merge lo: %d mid: %d hi: %d", lo, mid, hi));
 		
 		// Merge a[lo..mid] with a[mid+1..hi].
-		int lowIndex = low;
+		int lowIndex = lo;
 		int midIndex = mid + 1;
 	
-		// Copy array[low..hi] to auxArray[low..hi].
-		for (int i = low; i <= hi; i++) { 
-		
+		// Copy array[lo..hi] to auxArray[lo..hi].
+		System.out.println("Populating auxArray");
+		for (int i = lo; i <= hi; i++) {
 			System.out.println(array[i]);
 			auxArray[i] = array[i];
 		}
 	
-		// Merge back to array[low..hi].
-		for (int k = low; k <= hi; k++) {
-			
+		// Merge back to array[lo..hi].
+		for (int k = lo; k <= hi; k++) {
 			if (lowIndex > mid) {
-				
 				array[k] = auxArray[midIndex++];
-				
 			} else if (midIndex > hi) {
-				
 				array[k] = auxArray[lowIndex++];
-				
 			} else if (less(auxArray[midIndex], auxArray[lowIndex])) {
-				
 				array[k] = auxArray[midIndex++];
-				
 			} else {
-				
 				array[k] = auxArray[lowIndex++];
 			}
 		}
 	}
 	
 	@SuppressWarnings("rawtypes")
-	protected  void exch(Comparable[] a, int i, int j) {
+	protected static void exch(Comparable[] a, int i, int j) {
 		Comparable t = a[i];
 		a[i] = a[j];
 		a[j] = t;

@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/** 
- * Pulls data from external site
- */
 public class DataProvider {
 
 	public void loadData() throws Exception {
