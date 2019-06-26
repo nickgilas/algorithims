@@ -8,17 +8,11 @@ public class SortUtils {
 	}
 	
 	@SuppressWarnings("rawtypes")
-<<<<<<< HEAD
-	public boolean isSorted(Comparable[] a) { 
-		
-		for (int i = 1; i < a.length; i++)
-			if (lessThan(a[i], a[i - 1]))
-=======
-	public static boolean isSorted(Comparable[] a) { // Test whether the array
-		// entries are in order.
+	public boolean isSorted(Comparable[] a) {
+
 		for (int i = 1; i < a.length; i++) {
-			if (less(a[i], a[i - 1])) {
->>>>>>> branch 'master' of https://github.com/nickgilas/algorithms.git
+			if (lessThan(a[i], a[i - 1])) {
+
 				return false;
 			}
 		}
@@ -56,13 +50,8 @@ public class SortUtils {
 	public void sortAsc(Comparable[] a) { // Sort a[] into increasing order.
 		
 		int arrayLength = a.length;
-<<<<<<< HEAD
 		for (int outterIndex = 1; outterIndex < arrayLength; outterIndex++) {
 			for (int innerIndex = outterIndex; innerIndex > 0 && lessThan(a[innerIndex], a[innerIndex - 1]); innerIndex--)
-=======
-		for (int outerIndex = 1; outerIndex < arrayLength; outerIndex++) {
-			for (int innerIndex = outerIndex; innerIndex > 0 && less(a[innerIndex], a[innerIndex - 1]); innerIndex--)
->>>>>>> branch 'master' of https://github.com/nickgilas/algorithms.git
 				swap(a, innerIndex, innerIndex - 1);
 		}
 	}
