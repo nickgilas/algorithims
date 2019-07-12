@@ -4,6 +4,16 @@ import java.util.Arrays;
 
 public class StringUtil {
 
+	public String reverseString(String str) {
+		char[] reverseStr = new char[str.length()];
+
+		for (int i = 0; i < str.length(); i++) {
+			char tmpChar = str.charAt(i);
+			reverseStr[str.length() - i - 1] = tmpChar;
+		}
+		return new String(reverseStr);
+	}
+
 	public void replaceSpaces(char[] str, int trueLength) {
 
 		// calculate the number of spaces

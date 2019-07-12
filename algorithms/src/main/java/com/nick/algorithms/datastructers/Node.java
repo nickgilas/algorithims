@@ -25,8 +25,8 @@ public class Node<T> {
 		return true;
 	}
 
-	public void appendToTail(int data) {
-		Node<T> end = new Node(data);
+	public void appendToTail(T data) {
+		Node<T> end = new Node<>(data);
 		Node<T> me = this;
 
 		// loop through all of the link list "next" nodes until we are at the last one

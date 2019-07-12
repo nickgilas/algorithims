@@ -16,6 +16,11 @@ class StringUtilTest {
 	void setUp() throws Exception {
 	}
 
+	@Test
+	public void testReverseString() {
+		String result = util.reverseString("abcd ");
+		assertEquals(" dcba", result);
+	}
 	@Disabled
 	@Test
 	public void testReplaceSpaces() {
